@@ -20,7 +20,6 @@ export const Step1: React.FC<Props> = ({ handleNextStep }) => {
   const handleOnSubmit = () => {
     const response = sendCode.sendCodeSecurity(FormData.email);
     response.then((data) => {
-      console.log(data);
       if (data.data.success) return handleNextStep(1);
     });
   };
@@ -41,7 +40,7 @@ export const Step1: React.FC<Props> = ({ handleNextStep }) => {
           }}
           placeholder="Correo electronico"
         />
-        <button type="submit">Enviar codigo</button>
+        <button type="submit">{ sendCode.isPending ? "Cargando..." : "Enviar codigo" }</button>
       </form>
     </div>
   );

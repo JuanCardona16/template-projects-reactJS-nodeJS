@@ -22,7 +22,7 @@ authenticationPaths.post(
   PublicRoutes.VARIFY_CODE,
   asyncHandler(changePasswordController.verifyCode)
 );
-authenticationPaths.post(
+authenticationPaths.put(
   PublicRoutes.CHANGE_PASSWORD,
   asyncHandler(changePasswordController.changePassword)
 );

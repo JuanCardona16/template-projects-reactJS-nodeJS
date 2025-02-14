@@ -17,10 +17,10 @@ export const Step3: React.FC = () => {
     password: "",
   });
 
-  const { verify } = useChangePassword();
+  const { reset } = useChangePassword();
 
   const handleOnSubmit = () => {
-    const response = verify.verifyCode(FormData.password);
+    const response = reset.changePassword(FormData.password);
     response.then((data) => {
       console.log(data);
     });
@@ -29,10 +29,8 @@ export const Step3: React.FC = () => {
   return (
     <div>
       <h1>Actualizar contraseña</h1>
-      <p>
-        Introdusca su nueva contraseña
-      </p>
-      <form method="POST" onSubmit={handleSubmit(handleOnSubmit)}>
+      <p>Introdusca su nueva contraseña</p>
+      <form method="PUT" onSubmit={handleSubmit(handleOnSubmit)}>
         <label htmlFor="password">
           <h4>Contraseña: </h4>
           <input

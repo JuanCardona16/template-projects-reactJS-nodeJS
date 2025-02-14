@@ -20,7 +20,6 @@ export const Step2: React.FC<Props> = ({ handleNextStep }) => {
   const handleOnSubmit = () => {
     const response = verify.verifyCode(FormData.code);
     response.then((data) => {
-      console.log(data);
       if (data.data.success) return handleNextStep(2);
     });
   };
@@ -41,7 +40,7 @@ export const Step2: React.FC<Props> = ({ handleNextStep }) => {
           }}
           placeholder="Codigo"
         />
-        <button type="submit">Verificar codigo</button>
+        <button type="submit">{verify.isPending ? "Cargando..." : "Verificar codigo"}</button>
       </form>
     </div>
   );
