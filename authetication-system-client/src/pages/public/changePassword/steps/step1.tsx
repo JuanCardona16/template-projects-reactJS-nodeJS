@@ -20,7 +20,8 @@ export const Step1: React.FC<Props> = ({ handleNextStep }) => {
   const handleOnSubmit = () => {
     const response = sendCode.sendCodeSecurity(FormData.email);
     response.then((data) => {
-      if (data.data.success) return handleNextStep(1);
+      console.log(data)
+      if (data.success) return handleNextStep(1);
     });
   };
 

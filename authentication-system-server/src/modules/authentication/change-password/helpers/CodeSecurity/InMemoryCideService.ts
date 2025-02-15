@@ -19,7 +19,6 @@ class InMemoryCodeSecurity {
 
     this.codes.set(this.key, { code, expiresAt });
 
-    console.log(`Codigo generado para ${this.key}: ${code}`);
     return code;
   }
 

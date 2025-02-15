@@ -20,7 +20,7 @@ export const Step2: React.FC<Props> = ({ handleNextStep }) => {
   const handleOnSubmit = () => {
     const response = verify.verifyCode(FormData.code);
     response.then((data) => {
-      if (data.data.success) return handleNextStep(2);
+      if (data.success) return handleNextStep(2);
     });
   };
 

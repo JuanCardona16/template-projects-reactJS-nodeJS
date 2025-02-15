@@ -3,6 +3,7 @@ import { useForm } from "../../../hooks";
 import { useAuth } from "../../../modules/authentication/basic";
 import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../config";
+import { useGoogle } from "../../../modules/authentication/google/hooks/useGoogle";
 
 const Login = () => {
   const {
@@ -18,6 +19,7 @@ const Login = () => {
   });
 
   const { login } = useAuth();
+  const { loginWithGoogle } = useGoogle();
 
   return (
     <div
@@ -85,6 +87,7 @@ const Login = () => {
             {login.isPending ? "Cargando..." : "Iniciar sesion"}
           </button>
         </form>
+        <button type="button" onClick={loginWithGoogle.login}>Continuar con Google</button>
         <p>No tienes una cuenta? <Link to={PublicRoutes.REGISTER}>registrate aqui</Link></p>
       </div>
     </div>

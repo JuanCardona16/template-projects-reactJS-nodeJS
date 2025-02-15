@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { ApiPrefix } from '../constants';
+import { API_URL } from '../constants';
+
+console.log(API_URL)
 
 export const ApiIntance = axios.create({
-  baseURL: `http://localhost:3001/${ApiPrefix}`, // Replace with your API endpoint
+  baseURL: API_URL, // Replace with your API endpoint
   headers: {
     'Content-Type': 'application/json',
   },

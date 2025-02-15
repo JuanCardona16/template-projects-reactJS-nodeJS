@@ -7,6 +7,7 @@ import UserMongoSchema from "@/config/infraestructure/mongoDb/Models/User/Schema
 import { User } from "@/config/infraestructure/mongoDb/Models/User/Entity";
 import { CustomError } from "@/helpers";
 import PasswordHelpers from "../../basic/helpers/PasswordHelpers";
+import { CustomApiResponses } from "@/config/api";
 
 class ChangePasswordService {
   private resend: Resend;
@@ -22,33 +23,26 @@ class ChangePasswordService {
 
   public sendCodeForEmail = async (email: string) => {
     try {
-      console.log("Enviando correo a:", email);
-
       const code = InMemoryCodeSecurity.createCode(email); // Cambiar a este método según su implementación
 
-      const response = await this.resend.emails.send({
+      await this.resend.emails.send({
         from: "onboarding@resend.dev", // Cambiar a este dominio
         to: [email],
         subject: "Cambio de Contraseña",
         html: `<p>Este es tu codigo para recuperar tu contraseña <strong>${code}</strong>. Espira en 5 minutos.</p>`,
       });
-
-      console.log("Respuesta del servicio Resend:", response);
     } catch (error) {
-      console.error("Error al enviar el correo:", error);
+      return CustomApiResponses.error("Error al enviar el codigo de verificacion")
     }
   };
 
   public verifyCode = async (code: string) => {
-    console.log("Codigo recibido: ", code);
-
     const isCorrect = InMemoryCodeSecurity.verifyCode(code);
 
     if (!isCorrect) {
       throw new Error("El código es incorrecto o expiró.");
     }
 
-    console.log("El código es correcto.");
     return true;
   };
 
@@ -66,7 +60,7 @@ class ChangePasswordService {
       { new: true },
     )
   
-    return { message: "Contraseña actualizada correctamente" }
+    return CustomApiResponses.success("Contraseña actualizada correctamente!")
 
   };
 }

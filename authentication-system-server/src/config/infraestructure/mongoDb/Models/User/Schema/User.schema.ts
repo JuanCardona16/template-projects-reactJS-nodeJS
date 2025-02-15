@@ -46,8 +46,17 @@ const UserMongoSchema = new Schema<User>(
 );
 
 UserMongoSchema.pre("save", async function (next) {
-  if (!PasswordHelpers.validateCharacters(this.password)) {
-    return next(CustomError(400, "Invalid Credentials"));
+  // Si el usuario se autentica con Google y ya tiene una contraseña, solo la encriptamos
+  if (this.authenticationMethod === "GOOGLE") {
+    if (!this.password) {
+      // Generar una contraseña aleatoria si no tiene una
+      this.password = PasswordHelpers.generateSecurePassword(this.username);
+    }
+  } else {
+    // Validar la contraseña solo si el método de autenticación no es GOOGLE
+    if (!PasswordHelpers.validateCharacters(this.password)) {
+      return next(CustomError(400, "Invalid Credentials"));
+    }
   }
   this.password = PasswordHelpers.generateHashing(this.password, 12);
   next();

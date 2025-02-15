@@ -3,6 +3,7 @@ import { PublicRoutes } from "../../../config";
 import { useForm } from "../../../hooks";
 import { RegisterRequestData } from "../../../modules/authentication/basic/types";
 import { useAuth } from "../../../modules/authentication/basic";
+import { useGoogle } from "../../../modules/authentication/google/hooks/useGoogle";
 
 const Register = () => {
   const {
@@ -19,6 +20,7 @@ const Register = () => {
   });
 
   const { register } = useAuth();
+  const { loginWithGoogle } = useGoogle();
 
   return (
     <div
@@ -102,6 +104,7 @@ const Register = () => {
             {register.isPending ? "Cargando..." : "Iniciar sesion"}
           </button>
         </form>
+        <button type="button" onClick={loginWithGoogle.login}>Continuar con Google</button>
         <p>
           Ya tienes una cuenta?{" "}
           <Link to={PublicRoutes.LOGIN}>Inicia sesion aqui</Link>

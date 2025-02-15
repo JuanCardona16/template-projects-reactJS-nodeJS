@@ -15,5 +15,5 @@ export enum PublicRoutes {
   FORGOT_PASSWORD = "/forgot-password",
   VARIFY_CODE = "/verify-code",
   CHANGE_PASSWORD = "/change-password",
-  GOOGLE_LOGIN = "/google-login",
+  GOOGLE_LOGIN = "/google",
 }

@@ -9,9 +9,7 @@ class AuthenticationController {
 
     const response = await AuthenticationServices.register(data);
 
-    res.status(200).json({
-      data: response,
-    });
+    res.status(200).send(response);
   };
 
   login: RequestHandler = async (req, res, next) => {
@@ -22,9 +20,7 @@ class AuthenticationController {
 
     const response = await AuthenticationServices.login(data);
 
-    res.status(200).json({
-      data: response,
-    });
+    res.status(200).send(response);
   };
 
   logout: RequestHandler = () => {};

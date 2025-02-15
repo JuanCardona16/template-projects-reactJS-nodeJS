@@ -1,4 +1,4 @@
-export const ApiPrefix: string = "api/v1"
+// export const ApiPrefix: string = "api/v1"
 
 export enum ConsultationsPaths {  
   GET_USER_PROFILE = "/profile",
@@ -7,7 +7,7 @@ export enum ConsultationsPaths {
   FORGOT_PASSWORD = "/auth/forgot-password",
   VERIFY_CODE = "/auth/verify-code",
   RESET_PASSWORD = "/auth/change-password",
-  GOOGLE_LOGIN = "/auth/google-login",
+  GOOGLE_LOGIN = "/auth/google",
   REFESCH_TOKEN = "/auth/refresh-token",
 }
 

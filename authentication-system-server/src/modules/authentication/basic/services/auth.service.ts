@@ -6,6 +6,7 @@ import { jwtHelpers } from "@/config/security/security";
 import { CustomError } from "@/helpers";
 import { LoginRequestData, RegisterRequestData } from "../types";
 import PasswordHelpers from "../helpers/PasswordHelpers";
+import { CustomApiResponses } from "@/config/api";
 
 class AuthenticationServices {
   register = async (data: RegisterRequestData) => {
@@ -24,7 +25,7 @@ class AuthenticationServices {
       "2d"
     );
 
-    return token;
+    return CustomApiResponses.success(token);
   };
 
   login = async (data: LoginRequestData) => {
@@ -44,7 +45,7 @@ class AuthenticationServices {
       "2d"
     );
 
-    return token;
+    return CustomApiResponses.success(token);
   };
 
   logout() {}

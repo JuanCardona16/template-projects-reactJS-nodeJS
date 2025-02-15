@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useForm } from "../../../../hooks";
 import { useChangePassword } from "../../../../modules/authentication/change-password";
 
@@ -6,6 +7,7 @@ type FormChangePasswordData = {
 };
 
 export const Step3: React.FC = () => {
+  const navigate = useNavigate();
   const {
     FormData,
     handleChange,
@@ -23,6 +25,9 @@ export const Step3: React.FC = () => {
     const response = reset.changePassword(FormData.password);
     response.then((data) => {
       console.log(data);
+      if (data.success) {
+        navigate("/login", { replace: true });
+      }
     });
   };
 
