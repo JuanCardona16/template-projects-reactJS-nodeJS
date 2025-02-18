@@ -7,7 +7,6 @@ class AuthenticationServices {
       const response = await ApiIntance.post(ConsultationsPaths.LOGIN, data);
       return response.data;
     } catch (error) {
-      console.log(error);
       return error;
     }
   };
@@ -17,7 +16,6 @@ class AuthenticationServices {
       const response = await ApiIntance.post(ConsultationsPaths.REGISTER, data);
       return response.data;
     } catch (error) {
-      console.log(error);
       return error;
     }
   };

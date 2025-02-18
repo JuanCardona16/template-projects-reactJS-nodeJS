@@ -2,6 +2,7 @@ export const ApiPrefix: string = "/api/v1"
 export const ApiPrefixAuthRoutes: string = "/auth"
 export const ApiPrefixAuthGoogleRoutes: string = "/google"
 export const ApiPrefixRouteNotFound: string = "*"
+export const ApiPrefixRouteUser: string = "/user"
 
 export enum PrivateRoutes {
   HOME = "/home",

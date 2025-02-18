@@ -1,7 +1,5 @@
-// export const ApiPrefix: string = "api/v1"
-
 export enum ConsultationsPaths {  
-  GET_USER_PROFILE = "/profile",
+  // Auth routes paths
   LOGIN = "/auth/login",
   REGISTER = "/auth/register",
   FORGOT_PASSWORD = "/auth/forgot-password",
@@ -9,6 +7,9 @@ export enum ConsultationsPaths {
   RESET_PASSWORD = "/auth/change-password",
   GOOGLE_LOGIN = "/auth/google",
   REFESCH_TOKEN = "/auth/refresh-token",
+
+  // User routes paths
+  GET_USER_PROFILE = "/user/profile",
 }
 
 export enum PublicRoutes {

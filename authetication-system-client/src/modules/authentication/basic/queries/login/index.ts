@@ -17,7 +17,7 @@ export const useLogin = () => {
     mutationFn: AuthenticationServices.login,
     retry: 1, // Número de intentos de en caso de error en las consultas
     onSuccess: (data) => {
-      if (data !== "") {
+      if (data.success === true) {
         setStorageData("access_token", data.data);
         navigate("/");
       }

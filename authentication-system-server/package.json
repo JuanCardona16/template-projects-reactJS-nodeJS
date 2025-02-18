@@ -36,6 +36,8 @@
     "ioredis": "^5.5.0",
     "jsonwebtoken": "9.0.2",
     "mongoose": "8.9.5",
-    "resend": "^4.1.2"
+    "resend": "^4.1.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }

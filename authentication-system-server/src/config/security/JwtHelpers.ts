@@ -18,9 +18,10 @@ export class JwtHelpers {
     return jwt.sign(payload!, this.SECRET_REFRESH_KEY, { expiresIn } as jwt.SignOptions);
   }
 
-  verifyToken<T>(token: string): Payload<T> | null {
+  verifyToken<T>(payload: string): Payload<T> | null {
+    console.log("Payload: ", payload)
     try {
-      return jwt.verify(token, this.SECRET_KEY) as Payload<T>;
+      return jwt.verify(payload!, this.SECRET_KEY) as Payload<T>;
     } catch (error) {
       console.log("Invalid token jwt", error); // Solo para desarrollo
       return null;
