@@ -18,14 +18,18 @@ export const useForm = <T extends Record<string, any>>(initialData: T) => {
     }));
   };
 
-  const handleSubmit = (onSubmit: () => Promise<unknown> | unknown) => 
+  const handleSubmit =
+    (onSubmit: () => Promise<unknown> | unknown) =>
     async (event: React.FormEvent) => {
       event.preventDefault();
-  
+
       const validateErrors = validateForm(FormData);
-  
+
       if (Object.keys(validateErrors).length > 0) {
         setFormDataError(validateErrors);
+        setTimeout(() => {
+          setFormDataError({});
+        }, 10000);
         return;
       } else {
         await onSubmit();

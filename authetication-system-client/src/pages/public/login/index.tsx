@@ -4,6 +4,7 @@ import { useAuth } from "../../../modules/authentication/basic";
 import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../config";
 import { useGoogle } from "../../../modules/authentication/google/hooks/useGoogle";
+import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 
 const Login = () => {
   const {
@@ -22,73 +23,72 @@ const Login = () => {
   const { loginWithGoogle } = useGoogle();
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        textAlign: "center",
-      }}
-    >
-      <h2>Pagina de inicio de sesion</h2>
-      <div>
-        <form
-          method="POST"
-          onSubmit={handleSubmit(() => login.authenticate(FormData))}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "300px",
-            padding: "20px",
-          }}
-        >
-          <label htmlFor="email">
-            <h4>Correo electronico: </h4>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="current-password"
-              value={FormData.email}
-              onChange={handleChange}
-              style={{
-                padding: "10px",
-                marginTop: "10px",
-              }}
-            />
-          </label>
-          <span>{FormDataError.email}</span>
-          <br />
-          <label htmlFor="password">
-            <h4>Contraseña: </h4>
-            <input
-              type={IsVisiblePassword === true ? "text" : "password"}
-              id="password"
-              name="password"
-              value={FormData.password}
-              onChange={handleChange}
-              style={{
-                padding: "10px",
-                marginTop: "10px",
-              }}
-            />
-            <button type="button" onClick={toogleVisiblePassword}>Ver contraseña</button>
-          </label>
-          <span>{FormDataError.password}</span>
-          <Link to={PublicRoutes.FORGOT_PASSWORD}>Olvidaste tu contraseña?</Link>
-          <button
-            type="submit"
-            style={{
-              marginTop: "20px",
-            }}
+    <div className="h-screen w-screen flex justify-center items-center">
+      <div className="p-4 w-96">
+        <h2 className="text-3xl text-center mb-2 font-bold">
+          Bienvenido de nuevo
+        </h2>
+        <p className="text-sm text-center mb-2 text-secondary-text">
+          Ingresa tus credenciales para acceder a tu cuenta
+        </p>
+        <div className="my-6">
+          <form
+            method="POST"
+            onSubmit={handleSubmit(() => login.authenticate(FormData))}
+            className="flex flex-col gap-2"
           >
-            {login.isPending ? "Cargando..." : "Iniciar sesion"}
+            <label htmlFor="email">
+              <h4 className="mb-2">Correo electronico: </h4>
+              <div className="border rounded-md flex gap-2 py-2 px-3">
+                <Mail />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete="off"
+                  value={FormData.email}
+                  onChange={handleChange}
+                  className="appearance-none w-full focus:outline-none focus:shadow-outline bg-transparent text-sm"
+                  placeholder="nombre@ejemplo.com"
+                />
+              </div>
+            </label>
+            <span className="text-red-400 text-xs animate-pulse">{FormDataError.email}</span>
+            <label htmlFor="password">
+              <h4 className="mb-2">Contraseña: </h4>
+              <div className="border rounded-md flex gap-2 py-2 px-3">
+                <Lock />
+                <input
+                  type={IsVisiblePassword === true ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  autoComplete="off"
+                  value={FormData.password}
+                  onChange={handleChange}
+                  className="appearance-none w-full focus:outline-none focus:shadow-outline bg-transparent text-sm"
+                />
+                <button type="button" onClick={toogleVisiblePassword} className="cursor-pointer">
+                  {IsVisiblePassword ? <Eye /> : <EyeOff />}
+                </button>
+              </div>
+            </label>
+            <span className="text-red-400 text-xs animate-pulse">{FormDataError.password}</span>
+            <Link to={PublicRoutes.FORGOT_PASSWORD} className="text-secondary-text text-xs mb-2 text-end hover:underline">
+              ¿Olvidaste tu contraseña?
+            </Link>
+            <button type="submit" className="bg-secondary-background py-2 px-3 rounded-md cursor-pointer hover:bg-accent">
+              {login.isPending ? "Cargando..." : "Iniciar sesion"}
+            </button>
+          </form>
+          <p className="text-xs text-center m-4 text-secondary-text">o continua con</p>
+          <button className="bg-secondary-background w-full py-2 px-3 rounded-md mb-3 cursor-pointer hover:bg-accent" type="button" onClick={loginWithGoogle.login}>
+            Continuar con Google
           </button>
-        </form>
-        <button type="button" onClick={loginWithGoogle.login}>Continuar con Google</button>
-        <p>No tienes una cuenta? <Link to={PublicRoutes.REGISTER}>registrate aqui</Link></p>
+          <p className="text-sm text-center text-secondary-text">
+            No tienes una cuenta?{" "}
+            <Link to={PublicRoutes.REGISTER} className="hover:underline font-bold">Registrate</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
