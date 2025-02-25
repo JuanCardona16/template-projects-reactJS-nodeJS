@@ -20,14 +20,6 @@ export const Router = () => {
         />
         <Route element={<AuthGuards validation={true} />}>
           <Route path="/" element={<HomePage />}>
-            <Route
-              index
-              element={
-                <>
-                  <h1>Pagina principal</h1>
-                </>
-              }
-            />
           </Route>
         </Route>
       </Routes>

@@ -4,6 +4,8 @@ import { useForm } from "../../../hooks";
 import { RegisterRequestData } from "../../../modules/authentication/basic/types";
 import { useAuth } from "../../../modules/authentication/basic";
 import { useGoogle } from "../../../modules/authentication/google/hooks/useGoogle";
+import { Label, Button } from "../../../components/shared";
+import { Eye, EyeOff, Lock, Mail, UserRound } from "lucide-react";
 
 const Register = () => {
   const {
@@ -12,7 +14,7 @@ const Register = () => {
     handleChange,
     FormDataError,
     toogleVisiblePassword,
-    IsVisiblePassword
+    IsVisiblePassword,
   } = useForm<RegisterRequestData>({
     username: "",
     email: "",
@@ -23,91 +25,65 @@ const Register = () => {
   const { loginWithGoogle } = useGoogle();
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        textAlign: "center",
-      }}
-    >
-      <h2>Pagina de inicio de sesion</h2>
-      <div>
+    <div className="h-screen w-screen flex justify-center items-center">
+      <div className="p-4 w-96">
+        <h2 className="text-3xl text-center mb-2 font-bold">
+          Craer una cuenta
+        </h2>
+        <p className="text-sm text-center mb-4 text-secondary-text">
+          Ingresa tus datos para registrarte
+        </p>
         <form
           method="POST"
           onSubmit={handleSubmit(() => register.createAccount(FormData))}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "300px",
-            padding: "20px",
-          }}
+          className="flex flex-col gap-2"
         >
-          <label htmlFor="username">
-            <h4>Nombre de usuario: </h4>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={FormData.username}
-              onChange={handleChange}
-              style={{
-                padding: "10px",
-                marginTop: "10px",
-              }}
-            />
-          </label>
-          <span>{FormDataError.username}</span>
+          <Label
+            id="username"
+            name="username"
+            label="Nombre de Usuario: "
+            typeInput="text"
+            value={FormData.username}
+            onChange={handleChange}
+            error={FormDataError.username}
+            icon={<UserRound />}
+          />
+          <Label
+            id="email"
+            name="email"
+            label="Correo electronico:"
+            typeInput="email"
+            value={FormData.email}
+            onChange={handleChange}
+            error={FormDataError.email}
+            icon={<Mail />}
+          />
+          <Label
+            id="password"
+            name="password"
+            label="Contraseña:"
+            typeInput={IsVisiblePassword === true ? "text" : "password"}
+            value={FormData.password}
+            onChange={handleChange}
+            error={FormDataError.password}
+            icon={<Lock />}
+            rightIcon={IsVisiblePassword ? <Eye /> : <EyeOff />}
+            rightIconOnClick={toogleVisiblePassword}
+          />
           <br />
-          <label htmlFor="email">
-            <h4>Correo electronico: </h4>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={FormData.email}
-              onChange={handleChange}
-              style={{
-                padding: "10px",
-                marginTop: "10px",
-              }}
-            />
-          </label>
-          <span>{FormDataError.email}</span>
-          <br />
-          <label htmlFor="password">
-            <h4>Contraseña: </h4>
-            <input
-              type={IsVisiblePassword === true ? "text" : "password"}
-              id="password"
-              name="password"
-              value={FormData.password}
-              onChange={handleChange}
-              style={{
-                padding: "10px",
-                marginTop: "10px",
-              }}
-            />
-          </label>
-          <button type="button" onClick={toogleVisiblePassword}>
-            Ver contraseña
-          </button>
-          <span>{FormDataError.password}</span>
-          <button
-            type="submit"
-            style={{
-              marginTop: "20px",
-            }}
-          >
-            {register.isPending ? "Cargando..." : "Iniciar sesion"}
-          </button>
+          <Button type="submit" loading={register.isPending}>
+            Craer Cuenta
+          </Button>
         </form>
-        <button type="button" onClick={loginWithGoogle.login}>Continuar con Google</button>
-        <p>
+        <p className="text-xs text-center mb-3 text-secondary-text">
+          o continua con
+        </p>
+        <Button onClick={loginWithGoogle.login}>Continuar con Google</Button>
+        <p className="text-sm text-center text-secondary-text">
           Ya tienes una cuenta?{" "}
-          <Link to={PublicRoutes.LOGIN}>Inicia sesion aqui</Link>
+          <Link to={PublicRoutes.LOGIN} className="hover:underline font-bold">
+            Iniciar sesión
+          </Link>
         </p>
       </div>
     </div>
