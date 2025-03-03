@@ -1,5 +1,5 @@
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { CLIENT_GOOGLE_ID } from "../../../../config/constants";
+import { CLIENT_GOOGLE_ID } from "../../../../constants";
 
 type Props = {
   children: React.ReactNode;

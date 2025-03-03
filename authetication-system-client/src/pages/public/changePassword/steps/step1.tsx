@@ -26,9 +26,9 @@ export const Step1: React.FC<Props> = ({ handleNextStep }) => {
   };
 
   return (
-    <div>
-      <h1>Cambiar contraseña</h1>
-      <p>Le enviaremos un codigo de seguridad para cambiar su contraseña</p>
+    <div className="bg-background-secondary p-4 rounded-md w-xl">
+      <h2 className="text-2xl font-bold text-center mb-4">Cambiar contraseña</h2>
+      <p className="mb-4 text-text-secondary">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña</p>
       <form method="POST" onSubmit={handleSubmit(handleOnSubmit)}>
         <input
           type="email"

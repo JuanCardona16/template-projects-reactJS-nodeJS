@@ -22,7 +22,7 @@ type Props = {
 const labelStyles = {
   variants: {
     default:
-      "appearance-none w-full focus:outline-none focus:shadow-outline bg-transparent text-sm",
+      "input",
   },
   sizes: {
     small: "py-2 px-3 text-sm",
@@ -50,7 +50,7 @@ export const Label: React.FC<Props> = ({
   autoComplete = "off",
   variant = "default",
   className,
-  width = "auto",
+  width = "full",
 }) => {
   const variantStyles = labelStyles.variants[variant];
   const widthStyles = labelStyles.width[width];
@@ -60,8 +60,8 @@ export const Label: React.FC<Props> = ({
   return (
     <>
       <label htmlFor={id}>
-        <h4 className="mb-2 text-sm">{label}</h4>
-        <div className={`border rounded-md flex gap-2 py-2 px-3`}>
+        <h4 className="mb-2 text-sm text-text-secondary">{label}</h4>
+        <div className="label">
           {icon}
           <input
             type={typeInput}

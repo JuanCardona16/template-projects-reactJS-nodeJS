@@ -1,4 +1,5 @@
 import { ApiIntance, ConsultationsPaths } from "../../../config";
+import { UserAdapter } from "../../../config/api/adapters";
 
 class UserServices {
   async getUserInfo(token: string): Promise<any> {
@@ -11,7 +12,8 @@ class UserServices {
           },
         }
       );
-      return response.data;
+      const { data } = response.data;
+      return UserAdapter(data)
     } catch (error) {
       return `Internal error: ${error}`;
     }

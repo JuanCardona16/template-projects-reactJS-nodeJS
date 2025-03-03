@@ -15,7 +15,7 @@ export const useGetUserInfo = (token: string | null) => {
       return  UserServices.getUserInfo(token)
     },
     onSuccess: (data) => {
-      console.log("Usuario obtenido:", data);
+      return data
     },
   });
 

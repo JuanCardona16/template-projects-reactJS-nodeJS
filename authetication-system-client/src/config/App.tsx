@@ -6,19 +6,19 @@ import { GoogleProviderConfig } from "../modules/authentication/google/config/Go
 
 function App() {
   return (
-    <Suspense
-      fallback={
-        <>
-          Cargando contenido... <br /> Por favor espere!
-        </>
-      }
-    >
-      <GoogleProviderConfig>
+    <GoogleProviderConfig>
+      <Suspense
+        fallback={
+          <>
+            Cargando contenido... <br /> Por favor espere!
+          </>
+        }
+      >
         <QueryClientProvider client={QueryClientConfig}>
           <Router />
         </QueryClientProvider>
-      </GoogleProviderConfig>
-    </Suspense>
+      </Suspense>
+    </GoogleProviderConfig>
   );
 }
 

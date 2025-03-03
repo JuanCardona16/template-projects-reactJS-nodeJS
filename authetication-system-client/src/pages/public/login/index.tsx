@@ -24,12 +24,12 @@ const Login = () => {
   const { loginWithGoogle } = useGoogle();
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="layoutAuthPage">
       <div className="p-4 w-96">
         <h2 className="text-3xl text-center mb-2 font-bold">
           Bienvenido de nuevo
         </h2>
-        <p className="text-sm text-center mb-2 text-secondary-text">
+        <p className="text-sm text-center mb-2 text-text-secondary">
           Ingresa tus credenciales para acceder a tu cuenta
         </p>
         <div className="my-6">
@@ -62,7 +62,7 @@ const Login = () => {
             />
             <Link
               to={PublicRoutes.FORGOT_PASSWORD}
-              className="text-secondary-text text-xs mb-2 text-end hover:underline"
+              className="text-sm m-2 text-end hover:underline text-text-secondary"
             >
               ¿Olvidaste tu contraseña?
             </Link>
@@ -71,11 +71,13 @@ const Login = () => {
               Iniciar sesión
             </Button>
           </form>
-          <p className="text-xs text-center mb-3 text-secondary-text">
+          <p className="text-xs text-center mb-3 text-text-secondary">
             o continua con
           </p>
-          <Button onClick={loginWithGoogle.login}>Continuar con Google</Button>
-          <p className="text-sm text-center text-secondary-text">
+          <Button width="full" onClick={loginWithGoogle.login}>
+            Continuar con Google
+          </Button>
+          <p className="text-sm text-center text-text-secondary">
             No tienes una cuenta?{" "}
             <Link
               to={PublicRoutes.REGISTER}

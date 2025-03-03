@@ -6,7 +6,8 @@ import {
   ForgotPasswordPage,
 } from "../../pages";
 import { AuthGuards } from "../security";
-import { PublicRoutes } from "../constants";
+import { PublicRoutes } from "../../constants";
+import { RootLayout } from "../../components/Layouts";
 
 export const Router = () => {
   return (
@@ -19,7 +20,8 @@ export const Router = () => {
           element={<ForgotPasswordPage />}
         />
         <Route element={<AuthGuards validation={true} />}>
-          <Route path="/" element={<HomePage />}>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<HomePage />} />
           </Route>
         </Route>
       </Routes>

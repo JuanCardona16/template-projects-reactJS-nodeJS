@@ -25,12 +25,12 @@ const Register = () => {
   const { loginWithGoogle } = useGoogle();
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="layoutAuthPage">
       <div className="p-4 w-96">
         <h2 className="text-3xl text-center mb-2 font-bold">
           Craer una cuenta
         </h2>
-        <p className="text-sm text-center mb-4 text-secondary-text">
+        <p className="text-sm text-center mb-4 text-text-secondary">
           Ingresa tus datos para registrarte
         </p>
         <form
@@ -75,11 +75,13 @@ const Register = () => {
             Craer Cuenta
           </Button>
         </form>
-        <p className="text-xs text-center mb-3 text-secondary-text">
+        <p className="text-sm text-center mb-3 text-text-secondary">
           o continua con
         </p>
-        <Button onClick={loginWithGoogle.login}>Continuar con Google</Button>
-        <p className="text-sm text-center text-secondary-text">
+        <Button width="full" onClick={loginWithGoogle.login}>
+          Continuar con Google
+        </Button>
+        <p className="text-sm text-center text-text-secondary">
           Ya tienes una cuenta?{" "}
           <Link to={PublicRoutes.LOGIN} className="hover:underline font-bold">
             Iniciar sesión

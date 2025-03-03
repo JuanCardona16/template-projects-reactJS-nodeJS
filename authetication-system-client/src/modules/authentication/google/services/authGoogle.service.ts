@@ -1,5 +1,5 @@
 import { ApiIntance } from "../../../../config";
-import { ConsultationsPaths } from "../../../../config/constants";
+import { ConsultationsPaths } from "../../../../constants";
 
 class AuthGoogleServices {
   handleGoogleLogin = async (code: string) => {

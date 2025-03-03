@@ -1,23 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+@import "../components//shared/Button/Button.css";
+@import "../components/shared/Label/Label.css";
 
 @theme {
-  --font-roboto: "Roboto", sans-serif;
-  --color-background: #1e1e1e; /* Fondo principal */
-  --color-secondary-background: #2c2c2c; /* Fondo secundario */
-  --color-text: #e0e0e0; /* Texto principal */
-  --color-secondary-text: #a0a0a0; /* Texto secundario */
-  --color-accent: #3a3a3a; /* Acento */
-  --color-border: #3d3d3d; /* Bordes */
+  --font-roboto: "Exo 2", serif;
+
+  /* Colores primarios */
+  --color-purple: #6750A4; /* Botones principales, elementos interactivos, acentos de marca. */
+  --color-purple-hover: #4E3E8C; /* Ligeramente más oscuro */
+  --color-purple-shadow: rgba(103, 80, 164, 0.5); /* Morado con transparencia */
+  --color-green: #49A9A3; /* Indicadores de éxito, elementos secundarios interactivos, gráficos. */
+  --color-green-hover: #3A8A85; /* Ligeramente más oscuro */
+  --color-green-shadow: rgba(73, 169, 163, 0.5); /* Verde con transparencia */
+
+  /* Colores secundarios (Complementarios) */
+  --color-light-blue: #A0CFD5; /* Fondos de tarjetas, elementos secundarios de la interfaz, iconos. */
+  --color-light-blue-hover: #85B4BC; /* Ligeramente más oscuro */
+  --color-coral-orange: #FFAB91; /* Acentos llamativos, indicadores de alerta, elementos de énfasis. */
+  --color-coral-orange-hover: #E69A82; /* Ligeramente más oscuro */
+
+  /* Colores de texto */
+  --color-text-primary: #333333; /* (Gris oscuro) Uso: Texto general, títulos, párrafos. */
+  --color-text-secondary: #666666; /* (Gris medio) Uso: Subtítulos, descripciones, texto menos importante. */
+  --color-text-inactive-disabled: #999999; /* (Gris claro) Uso: Texto en elementos deshabilitados o inactivos. */
+  --color-text-white: #FFFFFF; /* Uso: Texto en fondos oscuros o de color primario. */
+
+  /* Colores de fondo */
+  --color-background-primary: #F8F8F8; /* (Gris muy claro) Uso: Fondo general de la aplicación. */
+  --color-background-secondary: #FFFFFF; /* (Blanco) (Tarjetas/Contenedores) Uso: Fondos de tarjetas, modales, contenedores de contenido. */
+  --color-background-inactive-disabled: #EEEEEE; /* (Gris muy claro) Uso: Fondos de elementos deshabilitados o inactivos. */
+
+  /* Colores de borde */
+  --color-border-primary: #DDDDDD; /* (Gris claro) Uso: Bordes de elementos, separadores. */
+  --color-border-secondary: #BBBBBB; /* (Gris medio claro) (Hover/Focus) Uso: Bordes de elementos interactivos en hover o focus. */
+
+  /* Colores de sombra */
+  --color-shadow-soft: rgba(0, 0, 0, 0.1); /* Uso: Sombras sutiles para dar profundidad a los elementos. */
+  --color-shadow-medium: rgba(0, 0, 0, 0.2); /* Uso: Sombras para elementos que necesitan más énfasis. */
+
+  /* Colores de iconos */
+  --color-icon-primary: #6750A4; /* (Morado primario) o #49A9A3 (Verde primario) Uso: Iconos que representan acciones principales o elementos de marca. */
+  --color-icon-secondary: #666666; /* Iconos que representan acciones secundarias o elementos de la interfaz. */
+
 }
 
 @layer base {
   body {
     font-family: var(--font-roboto);
-    background-color: var(--color-background);
-    color: var(--color-text);
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
     margin: 0;
     padding: 0;
   }
 }
 
+@layer components {
+
+  .layoutAuthPage {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-primary);
+  }
+
+}
