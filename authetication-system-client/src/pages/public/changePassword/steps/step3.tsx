@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../../../hooks";
 import { useChangePassword } from "../../../../modules/authentication/change-password";
+import { Button, Label } from "../../../../components/shared";
+import { Eye, EyeOff } from "lucide-react";
 
 type FormChangePasswordData = {
   password: string;
@@ -31,30 +33,32 @@ export const Step3: React.FC = () => {
     });
   };
 
+
   return (
-    <div>
-      <h1>Actualizar contraseña</h1>
-      <p>Introdusca su nueva contraseña</p>
-      <form method="PUT" onSubmit={handleSubmit(handleOnSubmit)}>
-        <label htmlFor="password">
-          <h4>Contraseña: </h4>
-          <input
-            type={IsVisiblePassword === true ? "text" : "password"}
-            id="password"
-            name="password"
-            value={FormData.password}
-            onChange={handleChange}
-            style={{
-              padding: "10px",
-              marginTop: "10px",
-            }}
-          />
-          <button type="button" onClick={toogleVisiblePassword}>
-            Ver contraseña
-          </button>
-        </label>
-        <span>{FormDataError.password}</span>
-        <button type="submit">Actualizar contraseña</button>
+    <div className="bg-background-secondary p-4 rounded-md w-sm">
+      <h1 className="text-2xl font-bold text-center mb-4">
+        Actualizar contraseña
+      </h1>
+      <p className="mb-4 text-text-secondary">Introdusca su nueva contraseña</p>
+      <form
+        method="PUT"
+        onSubmit={handleSubmit(handleOnSubmit)}
+        className="flex flex-col gap-3"
+      >
+        <Label
+          id="password"
+          name="password"
+          label="Contraseña:"
+          typeInput={IsVisiblePassword === true ? "text" : "password"}
+          value={FormData.password}
+          onChange={handleChange}
+          error={FormDataError.password}
+          rightIcon={IsVisiblePassword ? <Eye /> : <EyeOff />}
+          rightIconOnClick={toogleVisiblePassword}
+        />
+        <Button type="submit" width="full" loading={reset.isPending}>
+          Actualizar contraseña
+        </Button>
       </form>
     </div>
   );

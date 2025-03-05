@@ -8,6 +8,7 @@ type Props = {
   disabled?: boolean;
   loading?: boolean;
   width?: "auto" | "full";
+  margin?: "top" | "bottom" | "left" | "right";
 };
 
 const buttonStyles = {
@@ -28,6 +29,12 @@ const buttonStyles = {
     auto: "min-width",
   },
   disabled: "opacity-50 cursor-not-allowed",
+  margin: {
+    top: "0",
+    bottom: "mb-2",
+    left: "0",
+    right: "0",
+  },
 };
 
 export const Button: React.FC<Props> = ({
@@ -40,14 +47,16 @@ export const Button: React.FC<Props> = ({
   disabled = false,
   loading = false,
   width = "auto",
+  margin = "bottom",
 }) => {
   const baseStyles = buttonStyles.base;
   const variantStyles = buttonStyles.variants[variant];
   const sizeStyles = buttonStyles.sizes[size];
   const disabledStyles = disabled ? buttonStyles.disabled : "";
   const widthStyles = buttonStyles.width[width];
+  const marginStyles = buttonStyles.margin[margin];
 
-  const styles = `${baseStyles} ${variantStyles} ${sizeStyles} ${disabledStyles} ${widthStyles}`;
+  const styles = `${baseStyles} ${variantStyles} ${sizeStyles} ${disabledStyles} ${widthStyles} ${marginStyles}`;
 
   return (
     <button
