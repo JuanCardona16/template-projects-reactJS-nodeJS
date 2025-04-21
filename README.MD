@@ -1,20 +1,21 @@
-# Proyecto de Plantillas ReactJS y NodeJS
+# Sistema de Autenticación con ReactJS y NodeJS
 
-¡Bienvenido al repositorio `template-projects-reactJS-nodeJS`! Este proyecto ofrece una colección de plantillas para desarrollar aplicaciones web utilizando **ReactJS** en el frontend y **NodeJS** en el backend. Su objetivo es proporcionar una base sólida para iniciar proyectos de manera eficiente y estructurada.
+¡Bienvenido al repositorio `authentication-system-react-nodejs-plantilla`! Este proyecto proporciona una plantilla completa para desarrollar un sistema de autenticación utilizando **ReactJS** en el frontend y **NodeJS** en el backend. Su objetivo es ofrecer una base sólida para proyectos que requieran autenticación de usuarios.
 
 ## Estructura del Proyecto
 
 El repositorio está organizado en dos directorios principales:
 
-- **`authentication-system-server`**: Contiene el código fuente del servidor backend desarrollado con **NodeJS** y **Express**. Este módulo maneja la lógica del lado del servidor, incluyendo la autenticación y la gestión de usuarios.
-- **`authentication-system-client`**: Contiene el código fuente del cliente frontend desarrollado con **ReactJS**. Este módulo se encarga de la interfaz de usuario y la interacción con el servidor para procesos de autenticación y otras funcionalidades.
+- **`backend`**: Contiene el código fuente del servidor backend desarrollado con **NodeJS** y **Express**. Este módulo maneja la lógica del lado del servidor, incluyendo autenticación, gestión de usuarios y sesiones.
+- **`frontend`**: Contiene el código fuente del cliente frontend desarrollado con **ReactJS**. Este módulo se encarga de la interfaz de usuario y la interacción con el servidor para procesos de autenticación.
 
 ## Características
 
-- **Autenticación de Usuarios**: Implementación de sistemas de registro e inicio de sesión seguros.
-- **Gestión de Sesiones**: Manejo eficiente de sesiones de usuario.
+- **Autenticación Segura**: Registro e inicio de sesión con manejo de contraseñas cifradas.
+- **Gestión de Sesiones**: Uso de tokens JWT para autenticar y autorizar usuarios.
 - **Estructura Modular**: Código organizado para facilitar el mantenimiento y la escalabilidad.
 - **Integración Frontend-Backend**: Comunicación fluida entre el cliente ReactJS y el servidor NodeJS.
+- **Variables de Entorno**: Configuración flexible para entornos de desarrollo y producción.
 
 ## Requisitos Previos
 
@@ -30,19 +31,19 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local:
 ### 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/JuanCardona16/template-projects-reactJS-nodeJS.git
+git clone https://github.com/JuanCardona16/authentication-system-react-nodejs-plantilla.git
 ```
 
 ### 2. Instala las dependencias del servidor:
 
 ```bash
-cd template-projects-reactJS-nodeJS/authentication-system-server
+cd authentication-system-react-nodejs-plantilla/backend
 pnpm install
 ```
 
 ### 3. Configura las variables de entorno del servidor:
 
-Crea un archivo `.env` en el directorio `authentication-system-server` con las siguientes variables:
+Crea un archivo `.env` en el directorio `backend` con las siguientes variables:
 
 ```env
 PORT=5000
@@ -53,21 +54,21 @@ JWT_SECRET=your_jwt_secret
 ### 4. Inicia el servidor:
 
 ```bash
-pnpm dev:node
+pnpm dev
 ```
 
-El servidor debería estar ejecutándose en `http://localhost:3001`.
+El servidor debería estar ejecutándose en `http://localhost:5000/api/v1`.
 
 ### 5. Instala las dependencias del cliente:
 
 ```bash
-cd ../authentication-system-client
+cd ../frontend
 pnpm install
 ```
 
 ### 6. Configura las variables de entorno del cliente:
 
-Crea un archivo `.env` en el directorio `authentication-system-client` con las siguientes variables:
+Crea un archivo `.env` en el directorio `frontend` con las siguientes variables:
 
 ```env
 REACT_APP_API_URL=http://localhost:5000
@@ -88,25 +89,6 @@ Una vez que ambos servidores (cliente y backend) estén en funcionamiento, podr�
 - **Registrar nuevos usuarios**: Accediendo a la ruta `/register` en el frontend.
 - **Iniciar sesión**: Accediendo a la ruta `/login` en el frontend.
 - **Acceder a rutas protegidas**: Navegando por la aplicación después de autenticarse correctamente.
-<!-- 
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto:
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama:
-   ```bash
-   git checkout -b feature/nueva-funcionalidad
-   ```
-3. Realiza tus cambios y haz commit:
-   ```bash
-   git commit -m "Agregar nueva funcionalidad"
-   ```
-4. Sube tus cambios:
-   ```bash
-   git push origin feature/nueva-funcionalidad
-   ```
-5. Abre un **Pull Request**. -->
 
 ## Licencia
 
@@ -114,4 +96,4 @@ Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICE
 
 ---
 
-> **Nota**: Este README está basado en la estructura y características generales de proyectos que combinan **ReactJS** y **NodeJS**. Para información más específica, se recomienda revisar el código fuente y la documentación interna del proyecto.
+> **Nota**: Este README está diseñado para reflejar la estructura y funcionalidad del proyecto. Para más detalles, revisa el código fuente y la documentación interna.

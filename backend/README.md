@@ -89,3 +89,90 @@ Esta arquitectura nos ayudara a tener un mayor control y escalabilidad dependien
 ├── README.md              # Documentación del proyecto (este archivo)
 └── tsconfig.json          # Configuración del compilador TypeScript
 ```
+
+### 📘 Documentación de Swagger/OpenAPI
+
+Hemos integrado Swagger UI para documentar automáticamente tu API.
+
+### 📄 URL de la Documentación
+
+Accede a la documentación interactiva aquí:
+
+[http://localhost:3000/api-docs](http://localhost:3000/api-docs) ⚠️ Ajusta el puerto según tu configuración.
+
+### 🛠️ Cómo Utilizar la API
+
+#### 1. Configuración Inicial
+
+##### Variables de entorno
+
+Copia el archivo `.env.example` a `.env` y configura los valores necesarios:
+
+```env
+PORT=tu-port
+MONGODB_URI=tu-url-db
+JWT_SECRET=your-secret-key
+JWT_EXPIRES_IN=1d
+```
+
+#### Instalación de dependencias
+
+Usa uno de los siguientes comandos:
+
+```bash
+npm install
+# o
+pnpm install
+```
+
+#### Ejecución en desarrollo
+
+```bash
+npm run dev
+# o
+pnpm dev
+```
+
+### 🚀 Endpoints Disponibles
+
+#### 🔐 Autenticación
+
+| Método | Endpoint               | Descripción               |
+|--------|-------------------------|---------------------------|
+| POST   | `/api/v1/auth/register` | Registrar nuevo usuario   |
+| POST   | `/api/v1/auth/login`    | Iniciar sesión            |
+<!-- | POST   | `/api/v1/auth/logout`   | Cerrar sesión             | -->
+<!-- | GET    | `/api/v1/auth/me`       | Obtener información del usuario actual | -->
+
+#### 👤 Usuarios (Ejemplo)
+
+| Método | Endpoint               | Descripción               |
+|--------|-------------------------|---------------------------|
+| GET    | `/api/v1/user/profile`  | Obtener informacion del usuario actual |
+<!-- | GET    | `/api/v1/users/:id`     | Obtener un usuario específico |
+| PUT    | `/api/v1/users/:id`     | Actualizar un usuario      |
+| DELETE | `/api/v1/users/:id`     | Eliminar un usuario        | -->
+
+⚠️ Ajusta el puerto según tu configuración.
+
+### 🌟 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si deseas mejorar esta plantilla, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una rama para tu funcionalidad o corrección (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y haz commit (`git commit -m 'Agrega nueva funcionalidad'`).
+4. Sube tus cambios a tu fork (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request en este repositorio.
+
+### 🧩 Recursos Adicionales
+
+- [Documentación oficial de Node.js](https://nodejs.org/es/docs/)
+- [Documentación oficial de TypeScript](https://www.typescriptlang.org/docs/)
+- [Documentación oficial de Express.js](https://expressjs.com/es/)
+- [Documentación oficial de Mongoose](https://mongoosejs.com/docs/)
+- [Documentación oficial de Swagger](https://swagger.io/docs/)
+
+### 📝 Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
