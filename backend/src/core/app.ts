@@ -27,7 +27,6 @@ app.use(express.json());
 app.use(express.urlencoded({ limit: '1mb', extended: true }));
 app.use(limiter); // Aplicar el limitador de velocidad a todas las solicitudes
 
-
 // Configura Swagger entre los primeros middlewares
 setupSwagger(app);
 

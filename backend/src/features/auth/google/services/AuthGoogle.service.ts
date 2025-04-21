@@ -74,7 +74,7 @@ class AuthenticationGoogleServices {
       let data = {
         username: `${userData.name} ${userData.lastname}`,
         email: userData.email,
-        password: '', // Se generará una contraseña aleatoria
+        password: 'p:', // Se generará una contraseña aleatoria
         authenticationMethod: AuthMethods.GOOGLE,
         isVerified: true,
       };

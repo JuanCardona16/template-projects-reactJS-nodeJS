@@ -50,7 +50,6 @@ const UserMongoSchema = new Schema<User>(
 );
 
 UserMongoSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next(); // <- evita rehashear
   // Si el usuario se autentica con Google y ya tiene una contraseña, solo la encriptamos
   if (this.authenticationMethod === 'GOOGLE') {
     if (!this.password) {
