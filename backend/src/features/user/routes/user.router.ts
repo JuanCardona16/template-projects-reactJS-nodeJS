@@ -1,10 +1,10 @@
 import { PrivateRoutes } from '@/constants';
-import { authorize } from '@/modules/authentication/basic/middleware/authorize';
+import { authorize } from '@/core/middleware/auth/authorize';
 import { Router } from 'express';
-import UserControllers from '@/modules/user/controller/user.controllers';
+import userControllers from '../controller/user.controllers';
 
 const userRouterPaths: Router = Router();
 
-userRouterPaths.get(PrivateRoutes.PROFILE, authorize, UserControllers.getUserInfo);
+userRouterPaths.get(PrivateRoutes.PROFILE, authorize, userControllers.getUserInfo);
 
 export default userRouterPaths;

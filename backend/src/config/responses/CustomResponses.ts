@@ -1,19 +1,17 @@
 class CustomApiResponses {
-
   success = (data: any) => {
     return {
       success: true,
-      data: data
-    }
-  }
+      data: data,
+    };
+  };
 
-  error = (data: any) => { 
+  error = (data: any) => {
     return {
       success: false,
-      error: data
-    }
-  }
-
+      error: data,
+    };
+  };
 }
 
 export default new CustomApiResponses();

@@ -4,7 +4,7 @@ En este documento encontraras toda la documentacion correspondiente sobre esta p
 
 ## Descripción
 
-Este repositorio sirve como una plantilla **robusta, escalable y optimizada** para construir APIs backend utilizando Node.js, Express y TypeScript, con **MongoDB** como base de datos principal a través de **Mongoose ODM**. Se enfoca en las mejores prácticas de desarrollo, incluyendo una arquitectura clara, tipado estático, manejo eficiente de base de datos, autenticación segura, validación de datos, testing y configuración centralizada.
+Este repositorio sirve como una plantilla **robusta, escalable y optimizada** para construir APIs backend utilizando Node.js y TypeScript, con **MongoDB** como base de datos principal a través de **Mongoose ODM**. Se enfoca en las mejores prácticas de desarrollo, incluyendo una arquitectura clara, tipado estático, manejo eficiente de base de datos, autenticación segura, validación de datos, testing y configuración centralizada.
 
 El objetivo es proporcionar una base sólida y reutilizable que acelere el desarrollo de nuevas aplicaciones backend sobre MongoDB, garantizando calidad, mantenibilidad y rendimiento.
 
@@ -18,57 +18,35 @@ Estas son las tecnologias utilizadas en este proyecto:
 
 ## ✨ Características Principales
 
-* **🚀 Framework:** Express.js
-* **🔒 Tipado Estático:** TypeScript para mayor robustez y mejor experiencia de desarrollo.
-* **🔑 Autenticación:** Basada en JSON Web Tokens (JWT) almacenados en cookies `HttpOnly` y `Secure` o enviados como respuesta HTTPS.
-* **🛡️ Seguridad:** Hashing de contraseñas con `bcrypt`, validación de entrada con `Zod`, cabeceras de seguridad con `helmet`, prevención básica de ataques de fuerza bruta con `express-rate-limit`.
-* **💾 ODM:** `Mongoose` para modelado de datos, validación de esquemas y interacción simplificada con `MongoDB`.
-* **✅ Validación:** Validación de esquemas para cuerpos de solicitud, parámetros y consultas usando `Zod` (complementa las validaciones de Mongoose a nivel de API).
-* **🚦 Arquitectura Modular:** Estructura organizada por capas (rutas, controladores, servicios, modelos Mongoose) y potencialmente por *features* para facilitar la escalabilidad.
-* **⚙️ Configuración Centralizada:** Manejo de variables de entorno con `dotenv` y validación opcional de las mismas.
-* **centralized:** Middleware centralizado para capturar y manejar errores de forma consistente.
-<!-- * **🧪 Testing:** Configuración lista para pruebas unitarias y de integración con Jest (o Vitest como alternativa).
-* **📜 Logging:** Logging estructurado y configurable (ej. con Winston o Pino) para desarrollo y producción. -->
-* **📄 Documentación API:** Generación automática de documentación API con Swagger/OpenAPI.
-* **💅 Linting y Formateo:** ESLint y Prettier preconfigurados para mantener la consistencia del código.
-
-## Descripción
-
-Este repositorio sirve como una plantilla **robusta, escalable y optimizada** para construir APIs backend utilizando Node.js y TypeScript, con **MongoDB** como base de datos principal a través de **Mongoose ODM**. Se enfoca en las mejores prácticas de desarrollo, incluyendo una arquitectura clara, tipado estático, manejo eficiente de base de datos, autenticación segura, validación de datos, testing y configuración centralizada.
-
-El objetivo es proporcionar una base sólida y reutilizable que acelere el desarrollo de nuevas aplicaciones backend sobre MongoDB, garantizando calidad, mantenibilidad y rendimiento.
-
-## ✨ Características Principales
-
-* **🚀 Framework:** Express.js
-* **🔒 Tipado Estático:** TypeScript para mayor robustez y mejor experiencia de desarrollo.
-* **🔑 Autenticación:** Basada en JSON Web Tokens (JWT) almacenados en cookies `HttpOnly` y `Secure`.
-* **🛡️ Seguridad:** Hashing de contraseñas con `bcrypt`, validación de entrada con `Zod`, cabeceras de seguridad con `helmet`, prevención básica de ataques de fuerza bruta con `express-rate-limit`.
-* **💾 ODM:** Mongoose para modelado de datos, validación de esquemas y interacción simplificada con MongoDB.
-* **✅ Validación:** Validación de esquemas para cuerpos de solicitud, parámetros y consultas usando Zod (complementa las validaciones de Mongoose a nivel de API).
-* **🚦 Arquitectura Modular:** Estructura organizada por capas (rutas, controladores, servicios, modelos Mongoose) y potencialmente por *features* para facilitar la escalabilidad.
-* **⚙️ Configuración Centralizada:** Manejo de variables de entorno con `dotenv` y validación opcional de las mismas.
-* ** centralized:** Middleware centralizado para capturar y manejar errores de forma consistente.
-* **🧪 Testing:** Configuración lista para pruebas unitarias y de integración con Jest (o Vitest como alternativa).
-* **📜 Logging:** Logging estructurado y configurable (ej. con Winston o Pino) para desarrollo y producción.
-* **📄 Documentación API:** Generación automática de documentación API con Swagger/OpenAPI.
-* **💅 Linting y Formateo:** ESLint y Prettier preconfigurados para mantener la consistencia del código.
+- **🚀 Framework:** Express.js
+- **🔒 Tipado Estático:** TypeScript para mayor robustez y mejor experiencia de desarrollo.
+- **🔑 Autenticación:** Basada en JSON Web Tokens (JWT) almacenados en cookies `HttpOnly` y `Secure`.
+- **🛡️ Seguridad:** Hashing de contraseñas con `bcrypt`, validación de entrada con `Zod`, cabeceras de seguridad con `helmet`, prevención básica de ataques de fuerza bruta con `express-rate-limit`.
+- **💾 ODM:** Mongoose para modelado de datos, validación de esquemas y interacción simplificada con MongoDB.
+- **✅ Validación:** Validación de esquemas para cuerpos de solicitud, parámetros y consultas usando Zod (complementa las validaciones de Mongoose a nivel de API).
+- **🚦 Arquitectura Modular:** Estructura organizada por capas (rutas, controladores, servicios, modelos Mongoose) y potencialmente por _features_ para facilitar la escalabilidad.
+- **⚙️ Configuración Centralizada:** Manejo de variables de entorno con `dotenv` y validación opcional de las mismas.
+- **centralized:** Middleware centralizado para capturar y manejar errores de forma consistente.
+- **🧪 Testing:** Configuración lista para pruebas unitarias y de integración con Jest (o Vitest como alternativa).
+- **📜 Logging:** Logging estructurado y configurable (ej. con Winston o Pino) para desarrollo y producción.
+- **📄 Documentación API:** Generación automática de documentación API con Swagger/OpenAPI.
+- **💅 Linting y Formateo:** ESLint y Prettier preconfigurados para mantener la consistencia del código.
 
 ## 🛠️ Stack Tecnológico
 
-* **Lenguaje:** TypeScript 5.x+
-* **Entorno:** Node.js 18.x+
-* **Framework Web:** Express.js 4.x
-* **Base de Datos:** MongoDB
-* **ODM:** Mongoose 8.x
-* **Autenticación:** `jsonwebtoken`, `bcryptjs`
-* **Validación:** Zod, Mongoose Schemas
-* **Testing:** Jest (o Vitest)
-* **Logging:** Winston (o Pino)
-* **Seguridad:** `helmet`, `express-rate-limit`, `cors`
-* **Variables de Entorno:** `dotenv`
-* **Documentación API:** `swagger-ui-express`, `swagger-jsdoc`
-* **Linting/Formateo:** ESLint, Prettier
+- **Lenguaje:** TypeScript 5.x+
+- **Entorno:** Node.js 18.x+
+- **Framework Web:** Express.js 4.x
+- **Base de Datos:** MongoDB
+- **ODM:** Mongoose 8.x
+- **Autenticación:** `jsonwebtoken`, `bcryptjs`
+- **Validación:** Zod, Mongoose Schemas
+- **Testing:** Jest (o Vitest)
+- **Logging:** Winston (o Pino)
+- **Seguridad:** `helmet`, `express-rate-limit`, `cors`
+- **Variables de Entorno:** `dotenv`
+- **Documentación API:** `swagger-ui-express`, `swagger-jsdoc`
+- **Linting/Formateo:** ESLint, Prettier
 
 ## Arquitectura propuesta
 
@@ -110,3 +88,4 @@ Esta arquitectura nos ayudara a tener un mayor control y escalabilidad dependien
 ├── package.json           # Dependencias y scripts del proyecto
 ├── README.md              # Documentación del proyecto (este archivo)
 └── tsconfig.json          # Configuración del compilador TypeScript
+```

@@ -1,16 +1,12 @@
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt';
 
 class PasswordHelpers {
-  public compare(
-    passwordInRequest: string,
-    passwordInDatabase: string | any
-  ): boolean {
+  public compare(passwordInRequest: string, passwordInDatabase: string | any): boolean {
     return bcrypt.compareSync(passwordInRequest, passwordInDatabase);
   }
 
   public validateCharacters(password: string): boolean {
-    const regexKey =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%"*?&])[A-Za-z\d@$!"#%*?&]{8,14}$/;
+    const regexKey = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%"*?&])[A-Za-z\d@$!"#%*?&]{8,14}$/;
     return regexKey.test(password);
   }
 
@@ -19,13 +15,13 @@ class PasswordHelpers {
   }
 
   public generateSecurePassword = (username: string): string => {
-    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const lowercase = "abcdefghijklmnopqrstuvwxyz";
-    const numbers = "0123456789";
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
     const specialChars = '@$!#%"*?&';
     const allChars = uppercase + lowercase + numbers + specialChars;
 
-    let password = "";
+    let password = '';
 
     // Asegurar al menos un carácter de cada tipo
     password += uppercase[Math.floor(Math.random() * uppercase.length)];
@@ -47,9 +43,9 @@ class PasswordHelpers {
 
     // Mezclar los caracteres de la contraseña
     password = password
-      .split("")
+      .split('')
       .sort(() => 0.5 - Math.random())
-      .join("");
+      .join('');
 
     return password;
   };

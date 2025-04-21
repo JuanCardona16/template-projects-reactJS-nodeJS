@@ -1,16 +1,16 @@
-import { CustomError } from "@/lib";
-import { RequestHandler } from "express";
-import AuthenticationServices from "@/features/auth/basic/services/auth.service";
+import { CustomError } from '@/lib';
+import { RequestHandler } from 'express';
+import AuthenticationServices from '@/features/auth/basic/services/auth.service';
 
 class AuthenticationController {
   register: RequestHandler = async (req, res, next) => {
     const data = req.body as any;
-    console.log(data)
+    console.log(data);
 
-    if (!data) next(CustomError(500, "Bad request"));
+    if (!data) next(CustomError(500, 'Bad request'));
 
     const response = await AuthenticationServices.register(data);
-    console.log("controller server response:", response)
+    console.log('controller server response:', response);
 
     res.status(200).send(response);
   };
@@ -18,8 +18,7 @@ class AuthenticationController {
   login: RequestHandler = async (req, res, next) => {
     const data = req.body as any;
 
-    if (!data || !data.email || !data.password)
-      next(CustomError(400, "Bad credentials"));
+    if (!data || !data.email || !data.password) next(CustomError(400, 'Bad credentials'));
 
     const response = await AuthenticationServices.login(data);
 

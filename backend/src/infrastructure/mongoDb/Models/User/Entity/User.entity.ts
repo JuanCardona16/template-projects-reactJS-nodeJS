@@ -3,13 +3,13 @@ export interface User {
   username: string;
   email: string;
   password: string;
-  authenticationMethod: AuthMethods
+  authenticationMethod: AuthMethods;
   isVerified: boolean;
 }
 
-export enum AuthMethods { 
-  BASIC = "BASIC",
-  GOOGLE = "GOOGLE",
-  FACEBOOK = "FACEBOOK",
-  TWITTER = "TWITTER"
+export enum AuthMethods {
+  BASIC = 'BASIC',
+  GOOGLE = 'GOOGLE',
+  FACEBOOK = 'FACEBOOK',
+  TWITTER = 'TWITTER',
 }

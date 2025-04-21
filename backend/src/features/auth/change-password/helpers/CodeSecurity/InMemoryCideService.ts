@@ -1,6 +1,6 @@
 class InMemoryCodeSecurity {
-  private codes: Map<string, { code: string, expiresAt: number }> = new Map();
-  private key: string = "";
+  private codes: Map<string, { code: string; expiresAt: number }> = new Map();
+  private key: string = '';
 
   private generateCode(): string {
     return Math.floor(100000 + Math.random() * 900000).toString();
@@ -29,7 +29,6 @@ class InMemoryCodeSecurity {
    * @returns `true` si el código es válido, `false` si es incorrecto o expirado
    */
   public verifyCode(code: string): boolean {
-
     const data = this.codes.get(this.key);
     if (!data) return false;
 
@@ -43,7 +42,6 @@ class InMemoryCodeSecurity {
     this.codes.delete(this.key); // Eliminar despues del uso
     return true;
   }
-
 }
 
 export default new InMemoryCodeSecurity();

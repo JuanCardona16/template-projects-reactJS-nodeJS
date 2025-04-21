@@ -1,4 +1,4 @@
-import { AuthMethods } from "@/infrastructure/mongoDb/Models/User/Entity";
+import { AuthMethods } from '@/infrastructure/mongoDb/Models/User/Entity';
 
 export type LoginRequestData = {
   email: string;

@@ -1,6 +1,6 @@
-import { RequestHandler } from "express";
-import UserServices from "../services/user.service";
-import { CustomApiResponses } from "@/config/api";
+import { RequestHandler } from 'express';
+import UserServices from '../services/user.service';
+import CustomApiResponses from '@/config/responses/CustomResponses';
 
 class UserControllers {
   getUserInfo: RequestHandler = async (req, res, next) => {

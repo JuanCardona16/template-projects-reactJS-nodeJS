@@ -1,7 +1,7 @@
-import app from "../core/app";
-import { PORT } from "@/constants";
+import app from '../core/app.ts';
+import { PORT } from '@/constants';
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT} -> http://localhost:${PORT}`);
-  console.log("Control + C por stopping the servive");
+  console.log('Control + C por stopping the servive');
 });

@@ -1,2 +1,2 @@
-export * from "./Collections/Collections";
-export * from "../../lib/Mongo/MongoHelpers";
+export * from './Collections/Collections';
+export * from '../../lib/Mongo/MongoHelpers';

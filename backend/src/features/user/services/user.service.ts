@@ -1,19 +1,11 @@
-import { CollectionsNamesMongo } from "@/infrastructure/mongoDb";
-import { User } from "@/infrastructure/mongoDb/Models/User/Entity";
-import UserMongoSchema from "@/infrastructure/mongoDb/Models/User/Schema/User.schema";
-import MongoHelpers from "@/lib/Mongo/MongoHelpers";
-import { CustomError } from "@/helpers";
+import UserModel from '@/infrastructure/mongoDb/Models/User/UserModel';
+import { CustomError } from '@/lib';
 
 class UserServices {
   getInfo = async (data: string) => {
-    const model = MongoHelpers.getDataCollectionModel<User>(
-      CollectionsNamesMongo.USERS,
-      UserMongoSchema
-    );
+    const user = await UserModel.findOne({ uuid: data });
 
-    const user = await model.findOne({ uuid: data });
-
-    if (!user) return CustomError(404, "User not found");
+    if (!user) return CustomError(404, 'User not found');
 
     return user;
   };

@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "ESNext",
+    "target": "es2022",
     "rootDir": "./src",
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "module": "ESNext", // importante si usas ESM
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "useUnknownInCatchVariables": true,
+    "useUnknownInCatchVariables": true
   },
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules"]
