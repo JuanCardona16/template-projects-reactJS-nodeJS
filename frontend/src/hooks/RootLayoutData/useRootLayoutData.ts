@@ -24,8 +24,6 @@ export const useRootLayoutData = (): UseRootLayoutData => {
     }
   }, [isAuthenticated]);
 
-  console.log("user: ", user)
-
   return {
     user,
     isPending,

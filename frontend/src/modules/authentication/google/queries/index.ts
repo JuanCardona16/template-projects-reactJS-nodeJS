@@ -17,9 +17,7 @@ export const useAuthGoogleQuery = () => {
     mutationKey: ["auth/google"],
     mutationFn: AuthGoogleServices.handleGoogleLogin,
     onSuccess: (data) => {
-      console.log(data)
       if (data.success) {
-        console.log(data)
         setStorageData("access_token", data.data);
         navigate("/");
       }
