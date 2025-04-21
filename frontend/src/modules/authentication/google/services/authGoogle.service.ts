@@ -7,7 +7,6 @@ class AuthGoogleServices {
       const response = await ApiIntance.post(ConsultationsPaths.GOOGLE_LOGIN, {
         code,
       });
-      console.log("Google login response: ", response.data);
       return response.data;
     } catch (error) {
       console.log("Error: ", error);
