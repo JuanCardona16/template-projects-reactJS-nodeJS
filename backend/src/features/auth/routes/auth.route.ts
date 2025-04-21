@@ -65,6 +65,7 @@ authenticationPaths.post(PublicRoutes.REGISTER, asyncHandler(AuthenticationContr
  *         description: Unauthorized
  */
 authenticationPaths.post(PublicRoutes.LOGIN, asyncHandler(AuthenticationController.login));
+authenticationPaths.post(PublicRoutes.LOGIN, asyncHandler(AuthenticationController.login));
 
 /**
  * @swagger
@@ -104,7 +105,7 @@ authenticationPaths.post(
  *     requestBody:
  *       required: true
  *       content:
- *         application/json
+ *         application/json:
  *           schema:
  *             type: object
  *             properties:
