@@ -1,12 +1,9 @@
-import { RESEND_KEY } from '@/constants';
 import { Resend } from 'resend';
 import InMemoryCodeSecurity from '../helpers/CodeSecurity/InMemoryCideService';
-import MongoHelpers from '@/lib/Mongo/MongoHelpers';
-import { CollectionsNamesMongo } from '@/infrastructure/mongoDb';
-import UserMongoSchema from '@/infrastructure/mongoDb/Models/User/Schema/User.schema';
-import { User } from '@/infrastructure/mongoDb/Models/User/Entity';
 import PasswordHelpers from '../../../../lib/Passwords/PasswordHelpers';
 import CustomApiResponses from '@/config/responses/CustomResponses';
+import { RESEND_KEY } from '@/config/env/env';
+import UserModel from '@/infrastructure/mongoDb/Models/User/UserModel';
 
 class ChangePasswordService {
   private resend: Resend;
@@ -44,11 +41,6 @@ class ChangePasswordService {
   };
 
   public changePassword = async (data: { email: string; newPassword: string }) => {
-    const UserModel = MongoHelpers.getDataCollectionModel<User>(
-      CollectionsNamesMongo.USERS,
-      UserMongoSchema
-    );
-
     const hashedPassword = PasswordHelpers.generateHashing(data.newPassword, 12);
 
     await UserModel.findOneAndUpdate(

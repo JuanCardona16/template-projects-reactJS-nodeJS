@@ -9,6 +9,8 @@ import { GlobalHandleError } from './errors';
 import { handleNotFound } from './routes';
 import routerApplication from './routes/router';
 import limiter from './middleware/rateLimit/limiter';
+import helmer from 'helmet';
+import { setupSwagger } from '@/config/swagger/config';
 
 dotenv.config();
 const app = express();
@@ -17,6 +19,7 @@ const app = express();
 MongoHelpers.createDatabaseConnection(DATABASE_URL);
 
 // Configuracion
+app.use(helmer());
 app.use(setHeaders);
 app.use(CorsConfig());
 
@@ -24,8 +27,14 @@ app.use(express.json());
 app.use(express.urlencoded({ limit: '1mb', extended: true }));
 app.use(limiter); // Aplicar el limitador de velocidad a todas las solicitudes
 
+
+// Configura Swagger entre los primeros middlewares
+setupSwagger(app);
+
 // Rutas
 app.use(ApiPrefix, routerApplication);
+
+// Route not found
 app.use('*', handleNotFound);
 
 // Middleware global para el manejo de errores

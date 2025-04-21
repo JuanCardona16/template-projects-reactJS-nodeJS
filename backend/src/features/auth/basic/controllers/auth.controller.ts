@@ -5,12 +5,12 @@ import AuthenticationServices from '@/features/auth/basic/services/auth.service'
 class AuthenticationController {
   register: RequestHandler = async (req, res, next) => {
     const data = req.body as any;
-    console.log(data);
+    // console.log(data);
 
     if (!data) next(CustomError(500, 'Bad request'));
 
     const response = await AuthenticationServices.register(data);
-    console.log('controller server response:', response);
+    // console.log('controller server response:', response);
 
     res.status(200).send(response);
   };
