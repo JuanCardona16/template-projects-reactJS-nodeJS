@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - '@scarf/scarf'
+  - bcrypt
+  - esbuild
